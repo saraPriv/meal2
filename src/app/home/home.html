@@ -6,7 +6,7 @@
   </head>
   <body>
     <button (click)="onGenerateClick()">generateMealplan</button>
-    <table  border="1">
+    <table  border="1" >
         <tr>
           <th>Montag</th>
           <th>Dienstag</th>
@@ -17,27 +17,36 @@
           <th>Sonntag</th>
         </tr>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{mealsArray[mondayM].mealName}}</td>
+          <td>{{mealsArray[mondayM].mealName}}</td>
+          <td>{{mealsArray[wednesdayM].mealName}}</td>
+          <td>{{mealsArray[thursdayM].mealName}}</td>
+          <td>{{mealsArray[fridayM].mealName}}</td>
+          <td>{{mealsArray[saturdayM].mealName}}</td>
+          <td>{{mealsArray[sundayM].mealName}}</td>
         </tr>
       <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>{{mealsArray[mondayE].mealName}}</td>
+        <td>{{mealsArray[tuesdayE].mealName}}</td>
+        <td>{{mealsArray[wednesdayE].mealName}}</td>
+        <td>{{mealsArray[thursdayE].mealName}}</td>
+        <td>{{mealsArray[fridayE].mealName}}</td>
+        <td>{{mealsArray[saturdayE].mealName}}</td>
+        <td>{{mealsArray[sundayE].mealName}}</td>
       </tr>
     </table>
-      <div *ngFor="let days of daysWeekArr">
-        <th>{{days}}</th>
+  <div align="right">
+    <table>
+      <th>Einkaufsliste:</th>
+        <td>{{mealsArray[mondayE].ingredientsList}}</td>
+        <td>{{mealsArray[tuesdayE].ingredientsList}}</td>
+        <td>{{mealsArray[wednesdayE].ingredientsList}}</td>
+        <td>{{mealsArray[thursdayE].ingredientsList}}</td>
+        <td>{{mealsArray[fridayE].ingredientsList}}</td>
+        <td>{{mealsArray[saturdayE].ingredientsList}}</td>
+        <td>{{mealsArray[sundayE].ingredientsList}}</td>
 
-      </div>
+    </table>
+  </div>
   </body>
 </html>

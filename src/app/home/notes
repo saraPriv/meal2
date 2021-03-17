@@ -1,0 +1,5 @@
+git
+cd C:\devProjects\schule\meal2
+git add .
+git commit -m "Kommentar"
+git push origin master
