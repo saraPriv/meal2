@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "mealName": "name",
+    "vegetables": true,
+    "meat": true,
+    "potato": true,
+    "noodles": true,
+    "fastfood": false,
+    "time": 89,
+    "evening": true,
+    "noon": true,
+    "bothTime": true,
+    "weekday": [
+      "sunday"
+    ],
+    "ingredientsList": [
+      "tomato",
+      "bread",
+      "noodles",
+      "thing"]
+  },
+{
+  "id": 2,
+  "mealName": "lahdfdf",
+  "vegetables":true,
+  "meat": true,
+  "potato": true,
+  "noodles": true,
+  "fastfood": false,
+  "time": 89,
+  "evening": true,
+  "noon": true,
+  "bothTime": true,
+  "weekday": [
+    "sunday"
+  ],
+  "ingredientsList":[
+    "tomato",
+    "bread",
+    "noodles",
+    "thing"]
+},
+  {
+    "id": 3,
+    "mealName": "c",
+    "vegetables":true,
+    "meat": true,
+    "potato": true,
+    "noodles": true,
+    "fastfood": false,
+    "time": 89,
+    "evening": true,
+    "noon": true,
+    "bothTime": true,
+    "weekday": [
+      "sunday"
+    ],
+    "ingredientsList":[
+      "tomato",
+      "bread",
+      "noodles",
+      "thing"]
+  },
+  {
+    "id": 4,
+    "mealName": "d",
+    "vegetables":true,
+    "meat": true,
+    "potato": true,
+    "noodles": true,
+    "fastfood": false,
+    "time": 89,
+    "evening": true,
+    "noon": true,
+    "bothTime": true,
+    "weekday": [
+      "sunday"
+    ],
+    "ingredientsList":[
+      "tomato",
+      "bread",
+      "noodles",
+      "thing"]
+  },
+  {
+    "id": 5,
+    "mealName": "e",
+    "vegetables":true,
+    "meat": true,
+    "potato": true,
+    "noodles": true,
+    "fastfood": false,
+    "time": 89,
+    "evening": true,
+    "noon": true,
+    "bothTime": true,
+    "weekday": [
+      "sunday"
+    ],
+    "ingredientsList":[
+      "tomato",
+      "bread",
+      "noodles",
+      "thing"]
+  }
+]
