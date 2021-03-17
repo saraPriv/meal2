@@ -35,7 +35,7 @@ export class HomeComponent {
   ];
   mealsArray = [] = [
     { id: 1,
-      mealName: 'meal1',
+      mealName: 'meal',
       vegetables: true,
       meat: false,
       potato: false,
@@ -120,69 +120,112 @@ export class HomeComponent {
   ];
   onGenerateClick(): void {
       this.mealsOfTheWeekArray = [];
-      this.generateMeals();
-      this.checkNoon();
-      if (this.mealsArray[this.num].noon === true) {
-
-      }
-      this.generateMeals();
+      this.genMonday();
+      this.getNumbers();
+      this.mondayM = this.num;
+      this.mealsOfTheWeekArray.push(this.mondayM);
+      this.getNumbers();
       this.mondayE = this.num;
       this.mealsOfTheWeekArray.push(this.mondayE);
-      this.generateMeals();
+      this.getNumbers();
       this.tuesdayM = this.num;
       this.mealsOfTheWeekArray.push(this.tuesdayM);
-      this.generateMeals();
+      this.getNumbers();
       this.tuesdayE = this.num;
       this.mealsOfTheWeekArray.push(this.tuesdayE);
-      this.generateMeals();
+      this.getNumbers();
       this.wednesdayM = this.num;
       this.mealsOfTheWeekArray.push(this.wednesdayM);
-      this.generateMeals();
+      this.getNumbers();
       this.wednesdayE = this.num;
       this.mealsOfTheWeekArray.push(this.wednesdayE);
-      this.generateMeals();
+      this.getNumbers();
       this.thursdayM = this.num;
       this.mealsOfTheWeekArray.push(this.thursdayM);
-      this.generateMeals();
+      this.getNumbers();
       this.thursdayE = this.num;
       this.mealsOfTheWeekArray.push(this.thursdayE);
-      this.generateMeals();
+      this.getNumbers();
       this.fridayM = this.num;
       this.mealsOfTheWeekArray.push(this.fridayM);
-      this.generateMeals();
+      this.getNumbers();
       this.fridayE = this.num;
       this.mealsOfTheWeekArray.push(this.fridayE);
-      this.generateMeals();
+      this.getNumbers();
       this.saturdayM = this.num;
       this.mealsOfTheWeekArray.push(this.saturdayM);
-      this.generateMeals();
+      this.getNumbers();
       this.mealsOfTheWeekArray.push(this.saturdayE);
-      this.generateMeals();
+      this.getNumbers();
       this.sundayE = this.num;
       this.mealsOfTheWeekArray.push(this.sundayM);
-      this.generateMeals();
+      this.getNumbers();
       this.sundayE = this.num;
       this.mealsOfTheWeekArray.push(this.sundayE);
       console.log('push into mealsOfTheWeek successful');
       console.log(this.mealsOfTheWeekArray);
   }
-    generateMeals(): void{
+    getNumbers(): void{
     const max = this.mealsArray.length;
     this.num = 0;
       // Between 0 and max
     this.num = Math.floor(Math.random() * (max));
     }
-    checkNoon(): void {
-      if (this.mealsArray[this.num].noon === true) {
-        this.mondayM = this.num;
-        this.mealsOfTheWeekArray.push(this.mondayM);
-      }
-      else {
-        this.generateMeals();
-        this.checkNoon();
-      }
-  }
-    checkEvening(): void{
-
+    genMonday(): void{
+      const num = this.getNumbers();
     }
+    genTuesday(): void{
+      const max = this.mealsArray.length;
+      this.num = 0;
+      // Between 0 and max
+      this.num = Math.floor(Math.random() * (max));
+    }
+    genWednesday(): void{
+      const max = this.mealsArray.length;
+      this.num = 0;
+      // Between 0 and max
+      this.num = Math.floor(Math.random() * (max));
+    }
+    genThursday(): void{
+      const max = this.mealsArray.length;
+      this.num = 0;
+      // Between 0 and max
+      this.num = Math.floor(Math.random() * (max));
+    }
+    genFriday(): void{
+      const max = this.mealsArray.length;
+      this.num = 0;
+      // Between 0 and max
+      this.num = Math.floor(Math.random() * (max));
+    }
+    genSaturday(): void{
+      const max = this.mealsArray.length;
+      this.num = 0;
+      // Between 0 and max
+      this.num = Math.floor(Math.random() * (max));
+    }
+    genSunday(): void{
+      const max = this.mealsArray.length;
+      this.num = 0;
+      // Between 0 and max
+      this.num = Math.floor(Math.random() * (max));
+    }
+  //   checkNoon(): void {
+  //     if (this.mealsArray[this.num].noon === true) {
+  //       this.mealsOfTheWeekArray.push(this.num);
+  //     }
+  //     else {
+  //       this.generateMeals();
+  //       this.checkNoon();
+  //     }
+  // }
+  //   checkEvening(): void{
+  //     if (this.mealsArray[this.num].evening === true) {
+  //       this.mealsOfTheWeekArray.push(this.num);
+  //     }
+  //     else {
+  //       this.generateMeals();
+  //       this.checkEvening();
+  //     }
+  //   }
 }
