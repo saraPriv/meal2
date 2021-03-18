@@ -8,7 +8,7 @@
     <button (click)="onGenerateClick()">generateMealplan</button>
     <table  border="1" >
         <tr>
-          <th>Montag</th>
+          <th>Montag {{sideDishes[sideDishesOfTheWeek[0]]}}</th>
           <th>Dienstag</th>
           <th>Mittwoch</th>
           <th>Donnerstag</th>
@@ -17,35 +17,30 @@
           <th>Sonntag</th>
         </tr>
         <tr>
-          <td>{{mainDishes[mondayM].mealName}} with {{vegetablesOfTheWeek[0]}} and {{sideDishesOfTheWeek[0]}}</td>
-          <td>{{mainDishes[tuesdayM].mealName}} with</td>
-          <td>{{mainDishes[wednesdayM].mealName}}</td>
-          <td>{{mainDishes[thursdayM].mealName}}</td>
-          <td>{{mainDishes[fridayM].mealName}}</td>
-          <td>{{mainDishes[saturdayM].mealName}}</td>
-          <td>{{mainDishes[sundayM].mealName}}</td>
+          <td>{{sideDishes[sideDishesOfTheWeek[0]]}}</td>
+          <td>{{mainDishes[(mainDishesOfTheWeek[0])].mealName}} with {{vegetablesOfTheWeek[0]}} and {{sideDishes[sideDishesOfTheWeek[0]]}}</td>
+          <td>{{mainDishes[(mainDishesOfTheWeek[2])].mealName}} with {{vegetablesOfTheWeek[2]}} and {{sideDishesOfTheWeek[2]}}</td>
+          <td>{{mainDishes[(mainDishesOfTheWeek[4])].mealName}} with {{vegetablesOfTheWeek[4]}} and {{sideDishesOfTheWeek[4]}}</td>
+          <td>{{mainDishes[(mainDishesOfTheWeek[6])].mealName}} with {{vegetablesOfTheWeek[6]}} and {{sideDishesOfTheWeek[6]}}</td>
+          <td>{{mainDishes[(mainDishesOfTheWeek[8])].mealName}} with {{vegetablesOfTheWeek[8]}} and {{sideDishesOfTheWeek[8]}}</td>
+          <td>{{mainDishes[(mainDishesOfTheWeek[10])].mealName}} with {{vegetablesOfTheWeek[10]}} and {{sideDishesOfTheWeek[10]}}</td>
+          <td>{{mainDishes[(mainDishesOfTheWeek[12])].mealName}} with {{vegetablesOfTheWeek[12]}} and {{sideDishesOfTheWeek[12]}}</td>
         </tr>
+      {{mainDishesOfTheWeek | json}}
       <tr>
-        <td>{{mainDishes[mondayE].mealName}}</td>
-        <td>{{mainDishes[tuesdayE].mealName}}</td>
-        <td>{{mainDishes[wednesdayE].mealName}}</td>
-        <td>{{mainDishes[thursdayE].mealName}}</td>
-        <td>{{mainDishes[fridayE].mealName}}</td>
-        <td>{{mainDishes[saturdayE].mealName}}</td>
-        <td>{{mainDishes[sundayE].mealName}}</td>
+        <td>{{mainDishes[(mainDishesOfTheWeek[1])].mealName}} with {{vegetablesOfTheWeek[1]}} and {{sideDishesOfTheWeek[1]}}</td>
+        <td>{{mainDishes[(mainDishesOfTheWeek[3])].mealName}} with {{vegetablesOfTheWeek[3]}} and {{sideDishesOfTheWeek[3]}}</td>
+        <td>{{mainDishes[(mainDishesOfTheWeek[5])].mealName}} with {{vegetablesOfTheWeek[5]}} and {{sideDishesOfTheWeek[5]}}</td>
+        <td>{{mainDishes[(mainDishesOfTheWeek[7])].mealName}} with {{vegetablesOfTheWeek[7]}} and {{sideDishesOfTheWeek[7]}}</td>
+        <td>{{mainDishes[(mainDishesOfTheWeek[9])].mealName}} with {{vegetablesOfTheWeek[9]}} and {{sideDishesOfTheWeek[9]}}</td>
+        <td>{{mainDishes[(mainDishesOfTheWeek[11])].mealName}} with {{vegetablesOfTheWeek[11]}} and {{sideDishesOfTheWeek[11]}}</td>
+        <td>{{mainDishes[(mainDishesOfTheWeek[13])].mealName}} with {{vegetablesOfTheWeek[13]}} and {{sideDishesOfTheWeek[13]}}</td>
       </tr>
     </table>
   <div align="right">
     <table>
-      <th>Einkaufsliste:</th>
-        <td>{{mainDishes[mondayE].ingredientsList}}</td>
-        <td>{{mainDishes[tuesdayE].ingredientsList}}</td>
-        <td>{{mainDishes[wednesdayE].ingredientsList}}</td>
-        <td>{{mainDishes[thursdayE].ingredientsList}}</td>
-        <td>{{mainDishes[fridayE].ingredientsList}}</td>
-        <td>{{mainDishes[saturdayE].ingredientsList}}</td>
-        <td>{{mainDishes[sundayE].ingredientsList}}</td>
-
+      <tr>
+      </tr>
     </table>
   </div>
   </body>

@@ -12,22 +12,8 @@ export class HomeComponent {
   countMealsGenerated = 0;
   currentMealNum = 0;
   num = 0;
-  mondayE = 0;
-  mondayM = 0;
-  tuesdayE = 0;
-  tuesdayM = 0;
-  wednesdayE = 0;
-  wednesdayM = 0;
-  thursdayE = 0;
-  thursdayM = 0;
-  fridayE = 0;
-  fridayM = 0;
-  saturdayM = 0;
-  saturdayE = 0;
-  sundayE = 0;
-  sundayM = 0;
   title = 'meal2';
-  mainDishesOfTheWeek = [];
+  mainDishesOfTheWeek: number[];
   sideDishesOfTheWeek = [];
   vegetablesOfTheWeek = [];
   vegetables = [
@@ -36,7 +22,9 @@ export class HomeComponent {
   ];
   sideDishes = [
     'rice',
-    'noodles'
+    'noodles',
+    'other Rice',
+    'bread'
   ];
   daysWeekArr = [] = [
     'monday',
@@ -60,7 +48,7 @@ export class HomeComponent {
       noon: false,
       bothTime: false,
       sidedish: true,
-      vegetable: true,
+      vegetable: false,
       weekday: [
         'monday',
         'tuesday',
@@ -80,7 +68,7 @@ export class HomeComponent {
     {
       id: 2,
       mealName: 'sample2',
-      vegetables: true,
+      vegetables: false,
       meat: false,
       potato: false,
       noodles: false,
@@ -109,7 +97,297 @@ export class HomeComponent {
     {
       id: 2,
       mealName: 'sample3',
+      vegetables: false,
+      meat: false,
+      potato: false,
+      noodles: false,
+      fastfood: false,
+      time: false,
+      evening: true,
+      noon: false,
+      bothTime: false,
+      sidedish: true,
+      weekday: [
+        'monday',
+        'tuesday',
+        'wednesday',
+        'thursday',
+        'friday',
+        'saturday',
+        'sunday',
+      ],
+      ingredientsList: [
+        'i1',
+        'i2',
+        'i3',
+        'i3',
+      ]
+    },
+    {
+      id: 4,
+      mealName: 'sample4',
+      vegetables: false,
+      meat: false,
+      potato: false,
+      noodles: false,
+      fastfood: false,
+      time: false,
+      evening: true,
+      noon: false,
+      bothTime: false,
+      sidedish: true,
+      weekday: [
+        'monday',
+        'tuesday',
+        'wednesday',
+        'thursday',
+        'friday',
+        'saturday',
+        'sunday',
+      ],
+      ingredientsList: [
+        'i1',
+        'i2',
+        'i3',
+        'i3',
+      ]
+    },
+    {
+      id: 2,
+      mealName: 'sample5',
+      vegetables: false,
+      meat: false,
+      potato: false,
+      noodles: false,
+      fastfood: false,
+      time: false,
+      evening: true,
+      noon: false,
+      bothTime: false,
+      sidedish: true,
+      weekday: [
+        'monday',
+        'tuesday',
+        'wednesday',
+        'thursday',
+        'friday',
+        'saturday',
+        'sunday',
+      ],
+      ingredientsList: [
+        'i1',
+        'i2',
+        'i3',
+        'i3',
+      ]
+    },
+    {
+      id: 2,
+      mealName: 'sample6',
+      vegetables: false,
+      meat: false,
+      potato: false,
+      noodles: false,
+      fastfood: false,
+      time: false,
+      evening: true,
+      noon: false,
+      bothTime: false,
+      sidedish: true,
+      weekday: [
+        'monday',
+        'tuesday',
+        'wednesday',
+        'thursday',
+        'friday',
+        'saturday',
+        'sunday',
+      ],
+      ingredientsList: [
+        'i1',
+        'i2',
+        'i3',
+        'i3',
+      ]
+    },
+    { id: 1,
+      mealName: 'sample7',
       vegetables: true,
+      meat: false,
+      potato: false,
+      noodles: false,
+      fastfood: false,
+      time: false,
+      evening: true,
+      noon: false,
+      bothTime: false,
+      sidedish: true,
+      vegetable: false,
+      weekday: [
+        'monday',
+        'tuesday',
+        'wednesday',
+        'thursday',
+        'friday',
+        'saturday',
+        'sunday',
+      ],
+      ingredientsList: [
+        'i1',
+        'i2',
+        'i3',
+        'i3',
+      ]
+    },
+    {
+      id: 2,
+      mealName: 'sample8',
+      vegetables: false,
+      meat: false,
+      potato: false,
+      noodles: false,
+      fastfood: true,
+      time: false,
+      evening: true,
+      noon: true,
+      bothTime: false,
+      sidedish: true,
+      weekday: [
+        'monday',
+        'tuesday',
+        'wednesday',
+        'thursday',
+        'friday',
+        'saturday',
+        'sunday',
+      ],
+      ingredientsList: [
+        'i1',
+        'i2',
+        'i3',
+        'i3',
+      ]
+    },
+    {
+      id: 2,
+      mealName: 'sample9',
+      vegetables: false,
+      meat: false,
+      potato: false,
+      noodles: false,
+      fastfood: false,
+      time: false,
+      evening: true,
+      noon: false,
+      bothTime: false,
+      sidedish: true,
+      weekday: [
+        'monday',
+        'tuesday',
+        'wednesday',
+        'thursday',
+        'friday',
+        'saturday',
+        'sunday',
+      ],
+      ingredientsList: [
+        'i1',
+        'i2',
+        'i3',
+        'i3',
+      ]
+    },
+    {
+      id: 4,
+      mealName: 'sample10',
+      vegetables: false,
+      meat: false,
+      potato: false,
+      noodles: false,
+      fastfood: false,
+      time: false,
+      evening: true,
+      noon: false,
+      bothTime: false,
+      sidedish: true,
+      weekday: [
+        'monday',
+        'tuesday',
+        'wednesday',
+        'thursday',
+        'friday',
+        'saturday',
+        'sunday',
+      ],
+      ingredientsList: [
+        'i1',
+        'i2',
+        'i3',
+        'i3',
+      ]
+    },
+    {
+      id: 2,
+      mealName: 'sample11',
+      vegetables: false,
+      meat: false,
+      potato: false,
+      noodles: false,
+      fastfood: false,
+      time: false,
+      evening: true,
+      noon: false,
+      bothTime: false,
+      sidedish: true,
+      weekday: [
+        'monday',
+        'tuesday',
+        'wednesday',
+        'thursday',
+        'friday',
+        'saturday',
+        'sunday',
+      ],
+      ingredientsList: [
+        'i1',
+        'i2',
+        'i3',
+        'i3',
+      ]
+    },
+    {
+      id: 2,
+      mealName: 'sample12',
+      vegetables: false,
+      meat: false,
+      potato: false,
+      noodles: false,
+      fastfood: false,
+      time: false,
+      evening: true,
+      noon: false,
+      bothTime: false,
+      sidedish: true,
+      weekday: [
+        'monday',
+        'tuesday',
+        'wednesday',
+        'thursday',
+        'friday',
+        'saturday',
+        'sunday',
+      ],
+      ingredientsList: [
+        'i1',
+        'i2',
+        'i3',
+        'i3',
+      ]
+    },
+    {
+      id: 2,
+      mealName: 'sample13',
+      vegetables: false,
       meat: false,
       potato: false,
       noodles: false,
@@ -139,7 +417,13 @@ export class HomeComponent {
 
   onGenerateClick(): void {
       this.mainDishesOfTheWeek = [];
-      this.genMonday();
+      this.genOneDay();
+      this.genOneDay();
+      this.genOneDay();
+      this.genOneDay();
+      this.genOneDay();
+      this.genOneDay();
+      this.genOneDay();
       // this.mondayM = this.num;
       // this.mealsOfTheWeekArray.push(this.mondayM);
       // this.getNumbers();
@@ -180,8 +464,11 @@ export class HomeComponent {
       // this.getNumbers();
       // this.sundayE = this.num;
       // this.mealsOfTheWeekArray.push(this.sundayE);
-      console.log('push into mealsOfTheWeek successful');
+      console.log('generatingMealsSuccessfull');
       console.log(this.mainDishesOfTheWeek);
+      console.log(this.mainDishes);
+      console.log(this.sideDishesOfTheWeek);
+      console.log(this.vegetablesOfTheWeek);
   }
     getNumbersMainDish(): number{
     const max = this.mainDishes.length;
@@ -197,12 +484,9 @@ export class HomeComponent {
       this.num = Math.floor(Math.random() * max) + 1;
       return this.num;
   }
-    genMonday(): void{
-      // !toDo rewrite to genMeal() instead of get numbers itself!
-      const rndmNum = this.getNumbersMainDish();
-      this.mainDishesOfTheWeek.push(rndmNum);
-      const rndmNum2 = this.getNumbersMainDish();
-      this.mainDishesOfTheWeek.push(rndmNum2);
+    genOneDay(): void{
+      this.genMeal();
+      this.genMeal();
     }
     mainDish(): void {
       this.countMealsGenerated++;
@@ -210,12 +494,12 @@ export class HomeComponent {
     genMainDish(): void {
     this.num = this.getNumbersMainDish();
     if (this.mainDishesOfTheWeek.length === 0){ // if there is no mainDish added yet he adds cuz he doesnt habe to check
-      this.mainDishesOfTheWeek.push(this.mainDishes[this.num]);
+      this.mainDishesOfTheWeek.push(this.num);
       this.currentMealNum = this.num;
     }
     else {
       if (this.mainDishesOfTheWeek.includes(this.num) === false){// if we hadedt had it this week we add
-        this.mainDishesOfTheWeek.push(this.mainDishes[this.num]);
+        this.mainDishesOfTheWeek.push(this.num);
         this.currentMealNum = this.num;
       }
       // he checks if we had the same dish this week
@@ -258,25 +542,19 @@ export class HomeComponent {
           this.vegetablesOfTheWeek.push(this.num);
         }
         else{
+          if (this.mainDishes[this.currentMealNum].vegetables === false){
+            this.vegetablesOfTheWeek.push(0);
+          }
           if (this.vegetablesOfTheWeek[this.num - 1] === this.vegetables[this.num]){
             this.genVeg();
           }
-          else {
-            console.log('checking vegetables to its occurrence in the week failed');
-          }
         }
-      }
-      else {
-        this.vegetablesOfTheWeek.push(0);
       }
     }
     genMeal(): void{
     this.mainDish();
     this.genSideDish();
     this.genVeg();
-    if (this.mainDishes[this.countMealsGenerated].sidedish === true){
-      this.genSideDish();
-    }
     }
     // genTuesday(): void{
     //   const max = this.mealsArray.length;
