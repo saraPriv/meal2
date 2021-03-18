@@ -490,8 +490,10 @@ export class HomeComponent {
     }
     mainDish(): void {
       this.countMealsGenerated++;
+      this.genMainDish();
     }
     genMainDish(): void {
+    console.log('genMainDish');
     this.num = this.getNumbersMainDish();
     if (this.mainDishesOfTheWeek.length === 0){ // if there is no mainDish added yet he adds cuz he doesnt habe to check
       this.mainDishesOfTheWeek.push(this.num);
@@ -503,9 +505,9 @@ export class HomeComponent {
         this.currentMealNum = this.num;
       }
       // he checks if we had the same dish this week
-      if (this.mainDishesOfTheWeek.includes(this.num) === true){ // if we had it. we generate new
-        this.genMainDish();
-      }
+      // if (this.mainDishesOfTheWeek.includes(this.num) === true){ // if we had it. we generate new
+      //   this.genMainDish();
+      // }
       else {
         console.log('checking MainDishes to its occurrence in the week failed');
       }

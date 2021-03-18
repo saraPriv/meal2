@@ -5,6 +5,7 @@
     <title>Title</title>
   </head>
   <body>
+  {{this.countMealsGenerated}}
     <button (click)="onGenerateClick()">generateMealplan</button>
     <table  border="1" >
         <tr>
@@ -17,7 +18,6 @@
           <th>Sonntag</th>
         </tr>
         <tr>
-          <td>{{sideDishes[sideDishesOfTheWeek[0]]}}</td>
           <td>{{mainDishes[(mainDishesOfTheWeek[0])].mealName}} with {{vegetablesOfTheWeek[0]}} and {{sideDishes[sideDishesOfTheWeek[0]]}}</td>
           <td>{{mainDishes[(mainDishesOfTheWeek[2])].mealName}} with {{vegetablesOfTheWeek[2]}} and {{sideDishesOfTheWeek[2]}}</td>
           <td>{{mainDishes[(mainDishesOfTheWeek[4])].mealName}} with {{vegetablesOfTheWeek[4]}} and {{sideDishesOfTheWeek[4]}}</td>
@@ -26,7 +26,6 @@
           <td>{{mainDishes[(mainDishesOfTheWeek[10])].mealName}} with {{vegetablesOfTheWeek[10]}} and {{sideDishesOfTheWeek[10]}}</td>
           <td>{{mainDishes[(mainDishesOfTheWeek[12])].mealName}} with {{vegetablesOfTheWeek[12]}} and {{sideDishesOfTheWeek[12]}}</td>
         </tr>
-      {{mainDishesOfTheWeek | json}}
       <tr>
         <td>{{mainDishes[(mainDishesOfTheWeek[1])].mealName}} with {{vegetablesOfTheWeek[1]}} and {{sideDishesOfTheWeek[1]}}</td>
         <td>{{mainDishes[(mainDishesOfTheWeek[3])].mealName}} with {{vegetablesOfTheWeek[3]}} and {{sideDishesOfTheWeek[3]}}</td>
