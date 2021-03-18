@@ -10,6 +10,7 @@ import {count} from 'rxjs/operators';
 
 export class HomeComponent {
   countMealsGenerated = 0;
+  currentMealNum = 0;
   num = 0;
   mondayE = 0;
   mondayM = 0;
@@ -29,7 +30,14 @@ export class HomeComponent {
   mainDishesOfTheWeek = [];
   sideDishesOfTheWeek = [];
   vegetablesOfTheWeek = [];
-  sideDishes = [];
+  vegetables = [
+    'beans',
+    'broccoli',
+  ];
+  sideDishes = [
+    'rice',
+    'noodles'
+  ];
   daysWeekArr = [] = [
     'monday',
     'tuesday',
@@ -128,14 +136,7 @@ export class HomeComponent {
       ]
     }
   ];
-  sideDish = [] = [
-    {
-      name: 'beans',
-    },
-    {
-      name: 'broccoli',
-    }
-  ];
+
   onGenerateClick(): void {
       this.mainDishesOfTheWeek = [];
       this.genMonday();
@@ -210,10 +211,15 @@ export class HomeComponent {
     this.num = this.getNumbersMainDish();
     if (this.mainDishesOfTheWeek.length === 0){ // if there is no mainDish added yet he adds cuz he doesnt habe to check
       this.mainDishesOfTheWeek.push(this.mainDishes[this.num]);
+      this.currentMealNum = this.num;
     }
     else {
+      if (this.mainDishesOfTheWeek.includes(this.num) === false){// if we hadedt had it this week we add
+        this.mainDishesOfTheWeek.push(this.mainDishes[this.num]);
+        this.currentMealNum = this.num;
+      }
       // he checks if we had the same dish this week
-      if (this.mainDishesOfTheWeek.includes(this.num)){
+      if (this.mainDishesOfTheWeek.includes(this.num) === true){ // if we had it. we generate new
         this.genMainDish();
       }
       else {
@@ -222,28 +228,52 @@ export class HomeComponent {
     }
     }
     genSideDish(): void{
-    if (this.mainDishes[this.num].sidedish === true){
+    if (this.mainDishes[this.currentMealNum].sidedish === true){// check if we need sidedish
       this.num = this.getNumbersSideDish();
-      if (this.sideDishesOfTheWeek.length === 0){
+      if (this.sideDishesOfTheWeek.length === 0){ // add sidedish monday morning
         this.sideDishesOfTheWeek.push(this.num);
       }
       else{
-        if (this.sideDishesOfTheWeek[this.num - 1] === this.sideDishes[this.num]){
+        if (this.sideDishesOfTheWeek[this.currentMealNum - 1] !== this.sideDishes[this.num]){
+          this.sideDishesOfTheWeek.push(this.num);
+        }
+        else{
+        if (this.sideDishesOfTheWeek[this.currentMealNum - 1] === this.sideDishes[this.num]){ // no sidedish twice in a row
           this.genSideDish();
         }
         else {
           console.log('checking SideDishes to its occurrence in the week failed');
         }
       }
+      }
     }
     else {
       this.sideDishesOfTheWeek.push(0);
       }
     }
+    genVeg(): void{
+      if (this.mainDishes[this.currentMealNum].vegetables === true){ // look if we have a veg
+        this.num = this.getNumbersSideDish();
+        if (this.vegetablesOfTheWeek.length === 0){
+          this.vegetablesOfTheWeek.push(this.num);
+        }
+        else{
+          if (this.vegetablesOfTheWeek[this.num - 1] === this.vegetables[this.num]){
+            this.genVeg();
+          }
+          else {
+            console.log('checking vegetables to its occurrence in the week failed');
+          }
+        }
+      }
+      else {
+        this.vegetablesOfTheWeek.push(0);
+      }
+    }
     genMeal(): void{
     this.mainDish();
     this.genSideDish();
-    this.mainDish();
+    this.genVeg();
     if (this.mainDishes[this.countMealsGenerated].sidedish === true){
       this.genSideDish();
     }
