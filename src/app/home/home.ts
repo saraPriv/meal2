@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {countOccurrences} from '@angular-devkit/build-angular/src/webpack/plugins/analytics';
 import {count} from 'rxjs/operators';
 
 @Component({
@@ -28,6 +29,7 @@ export class HomeComponent {
   mainDishesOfTheWeek = [];
   sideDishesOfTheWeek = [];
   vegetablesOfTheWeek = [];
+  sideDishes = [];
   daysWeekArr = [] = [
     'monday',
     'tuesday',
@@ -180,25 +182,32 @@ export class HomeComponent {
       console.log('push into mealsOfTheWeek successful');
       console.log(this.mainDishesOfTheWeek);
   }
-    getNumbers(): number{
+    getNumbersMainDish(): number{
     const max = this.mainDishes.length;
     this.num = 0;
       // Between 0 and max
     this.num = Math.floor(Math.random() * (max));
     return this.num;
     }
+    getNumbersSideDish(): number{
+      const max = this.sideDishes.length;
+      this.num = 0;
+      // Between 1 and max
+      this.num = Math.floor(Math.random() * max) + 1;
+      return this.num;
+  }
     genMonday(): void{
-      // !toDo rewrite to gen meal() instead of get numbers itself!
-      const rndmNum = this.getNumbers();
+      // !toDo rewrite to genMeal() instead of get numbers itself!
+      const rndmNum = this.getNumbersMainDish();
       this.mainDishesOfTheWeek.push(rndmNum);
-      const rndmNum2 = this.getNumbers();
+      const rndmNum2 = this.getNumbersMainDish();
       this.mainDishesOfTheWeek.push(rndmNum2);
     }
     mainDish(): void {
       this.countMealsGenerated++;
     }
     genMainDish(): void {
-    this.num = this.getNumbers();
+    this.num = this.getNumbersMainDish();
     if (this.mainDishesOfTheWeek.length === 0){ // if there is no mainDish added yet he adds cuz he doesnt habe to check
       this.mainDishesOfTheWeek.push(this.mainDishes[this.num]);
     }
@@ -208,13 +217,28 @@ export class HomeComponent {
         this.genMainDish();
       }
       else {
-        console.log('checking MainDishes to its occurence in the week faileed');
+        console.log('checking MainDishes to its occurrence in the week failed');
       }
     }
     }
     genSideDish(): void{
-    const num = this.getNumbers();
-
+    if (this.mainDishes[this.num].sidedish === true){
+      this.num = this.getNumbersSideDish();
+      if (this.sideDishesOfTheWeek.length === 0){
+        this.sideDishesOfTheWeek.push(this.num);
+      }
+      else{
+        if (this.sideDishesOfTheWeek[this.num - 1] === this.sideDishes[this.num]){
+          this.genSideDish();
+        }
+        else {
+          console.log('checking SideDishes to its occurrence in the week failed');
+        }
+      }
+    }
+    else {
+      this.sideDishesOfTheWeek.push(0);
+      }
     }
     genMeal(): void{
     this.mainDish();
