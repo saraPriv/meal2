@@ -194,15 +194,21 @@ export class HomeComponent {
       const rndmNum2 = this.getNumbers();
       this.mainDishesOfTheWeek.push(rndmNum2);
     }
-    genMainDish(): void{
-    this.countMealsGenerated++;
+    mainDish(): void {
+      this.countMealsGenerated++;
+    }
+    genMainDish(): void {
     this.num = this.getNumbers();
-    if (this.mainDishesOfTheWeek.length === 0){
+    if (this.mainDishesOfTheWeek.length === 0){ // if there is no mainDish added yet he adds cuz he doesnt habe to check
       this.mainDishesOfTheWeek.push(this.mainDishes[this.num]);
     }
     else {
-      if (this.mainDishesOfTheWeek[this.countMealsGenerated - 1].mealName === this.mainDishes[this.num].mealName){
-         this.num = this.getNumbers();
+      // he checks if we had the same dish this week
+      if (this.mainDishesOfTheWeek.includes(this.num)){
+        this.genMainDish();
+      }
+      else {
+        console.log('checking MainDishes to its occurence in the week faileed');
       }
     }
     }
@@ -211,9 +217,9 @@ export class HomeComponent {
 
     }
     genMeal(): void{
-    this.genMainDish();
+    this.mainDish();
     this.genSideDish();
-    this.genMainDish();
+    this.mainDish();
     if (this.mainDishes[this.countMealsGenerated].sidedish === true){
       this.genSideDish();
     }
