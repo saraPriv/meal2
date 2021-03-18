@@ -19,12 +19,17 @@ export class HomeComponent {
   vegetables = [
     'beans',
     'broccoli',
+    'vegetable3',
+    'beans2',
+    'broccoli2',
+    'vegetable6'
   ];
   sideDishes = [
     'rice',
     'noodles',
     'other Rice',
-    'bread'
+    'bread',
+    'toast',
   ];
   daysWeekArr = [] = [
     'monday',
@@ -183,7 +188,7 @@ export class HomeComponent {
     },
     {
       id: 2,
-      mealName: 'sample6',
+      mealName: 'samplde6',
       vegetables: false,
       meat: false,
       potato: false,
@@ -211,7 +216,7 @@ export class HomeComponent {
       ]
     },
     { id: 1,
-      mealName: 'sample7',
+      mealName: 'sdample7',
       vegetables: true,
       meat: false,
       potato: false,
@@ -241,7 +246,7 @@ export class HomeComponent {
     },
     {
       id: 2,
-      mealName: 'sample8',
+      mealName: 'samplae8',
       vegetables: false,
       meat: false,
       potato: false,
@@ -270,7 +275,7 @@ export class HomeComponent {
     },
     {
       id: 2,
-      mealName: 'sample9',
+      mealName: 'samdple9',
       vegetables: false,
       meat: false,
       potato: false,
@@ -299,7 +304,7 @@ export class HomeComponent {
     },
     {
       id: 4,
-      mealName: 'sample10',
+      mealName: 'sample0',
       vegetables: false,
       meat: false,
       potato: false,
@@ -328,7 +333,7 @@ export class HomeComponent {
     },
     {
       id: 2,
-      mealName: 'sample11',
+      mealName: 'samplev',
       vegetables: false,
       meat: false,
       potato: false,
@@ -357,7 +362,7 @@ export class HomeComponent {
     },
     {
       id: 2,
-      mealName: 'sample12',
+      mealName: 'samplex',
       vegetables: false,
       meat: false,
       potato: false,
@@ -386,7 +391,7 @@ export class HomeComponent {
     },
     {
       id: 2,
-      mealName: 'sample13',
+      mealName: 'sample',
       vegetables: false,
       meat: false,
       potato: false,
@@ -412,7 +417,94 @@ export class HomeComponent {
         'i3',
         'i3',
       ]
-    }
+    },
+    {
+      id: 2,
+      mealName: 'sampledd',
+      vegetables: false,
+      meat: false,
+      potato: false,
+      noodles: false,
+      fastfood: false,
+      time: false,
+      evening: true,
+      noon: false,
+      bothTime: false,
+      sidedish: true,
+      weekday: [
+        'monday',
+        'tuesday',
+        'wednesday',
+        'thursday',
+        'friday',
+        'saturday',
+        'sunday',
+      ],
+      ingredientsList: [
+        'i1',
+        'i2',
+        'i3',
+        'i3',
+      ]
+    },
+    {
+      id: 2,
+      mealName: 'auesSample',
+      vegetables: false,
+      meat: false,
+      potato: false,
+      noodles: false,
+      fastfood: false,
+      time: false,
+      evening: true,
+      noon: false,
+      bothTime: false,
+      sidedish: true,
+      weekday: [
+        'monday',
+        'tuesday',
+        'wednesday',
+        'thursday',
+        'friday',
+        'saturday',
+        'sunday',
+      ],
+      ingredientsList: [
+        'i1',
+        'i2',
+        'i3',
+        'i3',
+      ]
+    },
+    {
+      id: 2,
+      mealName: 'sampleSample',
+      vegetables: false,
+      meat: false,
+      potato: false,
+      noodles: false,
+      fastfood: false,
+      time: false,
+      evening: true,
+      noon: false,
+      bothTime: false,
+      sidedish: true,
+      weekday: [
+        'monday',
+        'tuesday',
+        'wednesday',
+        'thursday',
+        'friday',
+        'saturday',
+        'sunday',
+      ],
+      ingredientsList: [
+        'i1',
+        'i2',
+        'i3',
+        'i3',
+      ]
+    },
   ];
 
   onGenerateClick(): void {
@@ -484,36 +576,49 @@ export class HomeComponent {
       this.num = Math.floor(Math.random() * max) + 1;
       return this.num;
   }
+    getNumbersVegetable(): number{
+      const max = this.sideDishes.length;
+      this.num = 0;
+      // Between 1 and max
+      this.num = Math.floor(Math.random() * max) + 1;
+      return this.num;
+    }
     genOneDay(): void{
       this.genMeal();
       this.genMeal();
     }
     mainDish(): void {
-      this.countMealsGenerated++;
       this.genMainDish();
     }
     genMainDish(): void {
     console.log('genMainDish');
+    this.num = 0;
     this.num = this.getNumbersMainDish();
     if (this.mainDishesOfTheWeek.length === 0){ // if there is no mainDish added yet he adds cuz he doesnt habe to check
       this.mainDishesOfTheWeek.push(this.num);
       this.currentMealNum = this.num;
+      console.log('firstMeal in the week');
     }
     else {
       if (this.mainDishesOfTheWeek.includes(this.num) === false){// if we hadedt had it this week we add
+        console.log('didnt have that meal this week');
         this.mainDishesOfTheWeek.push(this.num);
         this.currentMealNum = this.num;
       }
       // he checks if we had the same dish this week
-      // if (this.mainDishesOfTheWeek.includes(this.num) === true){ // if we had it. we generate new
-      //   this.genMainDish();
-      // }
+      if (this.mainDishesOfTheWeek.includes(this.num) === true){ // if we had it. we generate new
+        console.log('had the Meal already this week');
+        this.mainDish();
+      }
       else {
+        this.mainDishesOfTheWeek.push(this.num);
+        this.currentMealNum = this.num;
         console.log('checking MainDishes to its occurrence in the week failed');
       }
     }
     }
     genSideDish(): void{
+    console.log('genSideDish');
     if (this.mainDishes[this.currentMealNum].sidedish === true){// check if we need sidedish
       this.num = this.getNumbersSideDish();
       if (this.sideDishesOfTheWeek.length === 0){ // add sidedish monday morning
@@ -538,8 +643,9 @@ export class HomeComponent {
       }
     }
     genVeg(): void{
+      console.log('genVegetable');
       if (this.mainDishes[this.currentMealNum].vegetables === true){ // look if we have a veg
-        this.num = this.getNumbersSideDish();
+        this.num = this.getNumbersVegetable();
         if (this.vegetablesOfTheWeek.length === 0){
           this.vegetablesOfTheWeek.push(this.num);
         }
