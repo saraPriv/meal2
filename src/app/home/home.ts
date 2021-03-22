@@ -53,7 +53,6 @@ export class HomeComponent {
       noon: false,
       bothTime: false,
       sidedish: true,
-      vegetable: false,
       weekday: [
         'monday',
         'tuesday',
@@ -73,7 +72,7 @@ export class HomeComponent {
     {
       id: 2,
       mealName: 'sample2',
-      vegetables: false,
+      vegetables: true,
       meat: false,
       potato: false,
       noodles: false,
@@ -102,7 +101,7 @@ export class HomeComponent {
     {
       id: 2,
       mealName: 'sample3',
-      vegetables: false,
+      vegetables: true,
       meat: false,
       potato: false,
       noodles: false,
@@ -131,7 +130,7 @@ export class HomeComponent {
     {
       id: 4,
       mealName: 'sample4',
-      vegetables: false,
+      vegetables: true,
       meat: false,
       potato: false,
       noodles: false,
@@ -160,7 +159,7 @@ export class HomeComponent {
     {
       id: 2,
       mealName: 'sample5',
-      vegetables: false,
+      vegetables: true,
       meat: false,
       potato: false,
       noodles: false,
@@ -189,7 +188,7 @@ export class HomeComponent {
     {
       id: 2,
       mealName: 'samplde6',
-      vegetables: false,
+      vegetables: true,
       meat: false,
       potato: false,
       noodles: false,
@@ -227,7 +226,6 @@ export class HomeComponent {
       noon: false,
       bothTime: false,
       sidedish: true,
-      vegetable: false,
       weekday: [
         'monday',
         'tuesday',
@@ -247,7 +245,7 @@ export class HomeComponent {
     {
       id: 2,
       mealName: 'samplae8',
-      vegetables: false,
+      vegetables: true,
       meat: false,
       potato: false,
       noodles: false,
@@ -276,7 +274,7 @@ export class HomeComponent {
     {
       id: 2,
       mealName: 'samdple9',
-      vegetables: false,
+      vegetables: true,
       meat: false,
       potato: false,
       noodles: false,
@@ -305,7 +303,7 @@ export class HomeComponent {
     {
       id: 4,
       mealName: 'sample0',
-      vegetables: false,
+      vegetables: true,
       meat: false,
       potato: false,
       noodles: false,
@@ -334,7 +332,7 @@ export class HomeComponent {
     {
       id: 2,
       mealName: 'samplev',
-      vegetables: false,
+      vegetables: true,
       meat: false,
       potato: false,
       noodles: false,
@@ -363,7 +361,7 @@ export class HomeComponent {
     {
       id: 2,
       mealName: 'samplex',
-      vegetables: false,
+      vegetables: true,
       meat: false,
       potato: false,
       noodles: false,
@@ -392,7 +390,7 @@ export class HomeComponent {
     {
       id: 2,
       mealName: 'sample',
-      vegetables: false,
+      vegetables: true,
       meat: false,
       potato: false,
       noodles: false,
@@ -421,7 +419,7 @@ export class HomeComponent {
     {
       id: 2,
       mealName: 'sampledd',
-      vegetables: false,
+      vegetables: true,
       meat: false,
       potato: false,
       noodles: false,
@@ -450,7 +448,7 @@ export class HomeComponent {
     {
       id: 2,
       mealName: 'auesSample',
-      vegetables: false,
+      vegetables: true,
       meat: false,
       potato: false,
       noodles: false,
@@ -479,7 +477,7 @@ export class HomeComponent {
     {
       id: 2,
       mealName: 'sampleSample',
-      vegetables: false,
+      vegetables: true,
       meat: false,
       potato: false,
       noodles: false,
@@ -516,46 +514,6 @@ export class HomeComponent {
       this.genOneDay();
       this.genOneDay();
       this.genOneDay();
-      // this.mondayM = this.num;
-      // this.mealsOfTheWeekArray.push(this.mondayM);
-      // this.getNumbers();
-      // this.mondayE = this.num;
-      // this.mealsOfTheWeekArray.push(this.mondayE);
-      // this.getNumbers();
-      // this.tuesdayM = this.num;
-      // this.mealsOfTheWeekArray.push(this.tuesdayM);
-      // this.getNumbers();
-      // this.tuesdayE = this.num;
-      // this.mealsOfTheWeekArray.push(this.tuesdayE);
-      // this.getNumbers();
-      // this.wednesdayM = this.num;
-      // this.mealsOfTheWeekArray.push(this.wednesdayM);
-      // this.getNumbers();
-      // this.wednesdayE = this.num;
-      // this.mealsOfTheWeekArray.push(this.wednesdayE);
-      // this.getNumbers();
-      // this.thursdayM = this.num;
-      // this.mealsOfTheWeekArray.push(this.thursdayM);
-      // this.getNumbers();
-      // this.thursdayE = this.num;
-      // this.mealsOfTheWeekArray.push(this.thursdayE);
-      // this.getNumbers();
-      // this.fridayM = this.num;
-      // this.mealsOfTheWeekArray.push(this.fridayM);
-      // this.getNumbers();
-      // this.fridayE = this.num;
-      // this.mealsOfTheWeekArray.push(this.fridayE);
-      // this.getNumbers();
-      // this.saturdayM = this.num;
-      // this.mealsOfTheWeekArray.push(this.saturdayM);
-      // this.getNumbers();
-      // this.mealsOfTheWeekArray.push(this.saturdayE);
-      // this.getNumbers();
-      // this.sundayE = this.num;
-      // this.mealsOfTheWeekArray.push(this.sundayM);
-      // this.getNumbers();
-      // this.sundayE = this.num;
-      // this.mealsOfTheWeekArray.push(this.sundayE);
       console.log('generatingMealsSuccessfull');
       console.log(this.mainDishesOfTheWeek);
       console.log(this.mainDishes);
@@ -640,7 +598,12 @@ export class HomeComponent {
       }
     }
     else {
-      this.sideDishesOfTheWeek.push(0);
+      if (this.mainDishes[this.currentMealNum].sidedish === false) {
+        this.sideDishesOfTheWeek.push(0);
+      }
+      else {
+        console.log('no side Dish');
+      }
       }
     }
     genVeg(): void{
@@ -651,10 +614,10 @@ export class HomeComponent {
           this.vegetablesOfTheWeek.push(this.num);
         }
         else{
-          if (this.mainDishes[this.currentMealNum].vegetables === false){
+          if (this.mainDishes[this.currentMealNum].vegetables === false){ // if we dont have a veg
             this.vegetablesOfTheWeek.push(0);
           }
-          if (this.vegetablesOfTheWeek[this.num - 1] === this.vegetables[this.num]){
+          if (this.vegetablesOfTheWeek[this.num - 1] === this.vegetables[this.num]){ // gen new veg if already had a meal before
             this.genVeg();
           }
         }
@@ -665,42 +628,6 @@ export class HomeComponent {
     this.genSideDish();
     this.genVeg();
     }
-    // genTuesday(): void{
-    //   const max = this.mealsArray.length;
-    //   this.num = 0;
-    //   // Between 0 and max
-    //   this.num = Math.floor(Math.random() * (max));
-    // }
-    // genWednesday(): void{
-    //   const max = this.mealsArray.length;
-    //   this.num = 0;
-    //   // Between 0 and max
-    //   this.num = Math.floor(Math.random() * (max));
-    // }
-    // genThursday(): void{
-    //   const max = this.mealsArray.length;
-    //   this.num = 0;
-    //   // Between 0 and max
-    //   this.num = Math.floor(Math.random() * (max));
-    // }
-    // genFriday(): void{
-    //   const max = this.mealsArray.length;
-    //   this.num = 0;
-    //   // Between 0 and max
-    //   this.num = Math.floor(Math.random() * (max));
-    // }
-    // genSaturday(): void{
-    //   const max = this.mealsArray.length;
-    //   this.num = 0;
-    //   // Between 0 and max
-    //   this.num = Math.floor(Math.random() * (max));
-    // }
-    // genSunday(): void{
-    //   const max = this.mealsArray.length;
-    //   this.num = 0;
-    //   // Between 0 and max
-    //   this.num = Math.floor(Math.random() * (max));
-    // }
   //   checkNoon(): void {
   //     if (this.mealsArray[this.num].noon === true) {
   //       this.mealsOfTheWeekArray.push(this.num);
