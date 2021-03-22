@@ -17,19 +17,19 @@ export class HomeComponent {
   sideDishesOfTheWeek = [];
   vegetablesOfTheWeek = [];
   vegetables = [
-    'beans',
-    'broccoli',
-    'vegetable3',
-    'beans2',
-    'broccoli2',
+    'samp',
+    'sammp',
+    'samp3',
+    'samp4',
+    'samp5',
     'vegetable6'
   ];
   sideDishes = [
-    'rice',
-    'noodles',
-    'other Rice',
-    'bread',
-    'toast',
+    'sa',
+    'sa1',
+    'sa2',
+    'sa3',
+    'sa4',
   ];
   daysWeekArr = [] = [
     'monday',
@@ -42,7 +42,7 @@ export class HomeComponent {
   ];
   mainDishes = [] = [
     { id: 1,
-      mealName: 'risotto',
+      mealName: 'sampleSamp',
       vegetables: true,
       meat: false,
       potato: false,
@@ -589,31 +589,32 @@ export class HomeComponent {
     }
     mainDish(): void {
       this.genMainDish();
+      console.log('return already had main');
     }
     genMainDish(): void {
     console.log('genMainDish');
     this.num = 0;
     this.num = this.getNumbersMainDish();
-    if (this.mainDishesOfTheWeek.length === 0){ // if there is no mainDish added yet he adds cuz he doesnt habe to check
+    if (this.mainDishesOfTheWeek.length === 0){ // if there is no mainDish added yet he adds cuz he doesnt have to check
       this.mainDishesOfTheWeek.push(this.num);
       this.currentMealNum = this.num;
       console.log('firstMeal in the week');
     }
     else {
-      if (this.mainDishesOfTheWeek.includes(this.num) === false){// if we hadedt had it this week we add
+      if (this.mainDishesOfTheWeek.includes(this.num) === false) {// if we hadedt had it this week we add
         console.log('didnt have that meal this week');
         this.mainDishesOfTheWeek.push(this.num);
         this.currentMealNum = this.num;
-      }
-      // he checks if we had the same dish this week
-      if (this.mainDishesOfTheWeek.includes(this.num) === true){ // if we had it. we generate new
-        console.log('had the Meal already this week');
-        this.mainDish();
-      }
-      else {
-        this.mainDishesOfTheWeek.push(this.num);
-        this.currentMealNum = this.num;
-        console.log('checking MainDishes to its occurrence in the week failed');
+      } else {
+        // he checks if we had the same dish this week
+        if (this.mainDishesOfTheWeek.includes(this.num) === true) { // if we had it. we generate new
+          console.log('had the Meal already this week');
+          this.mainDish();
+        } else {
+          this.mainDishesOfTheWeek.push(this.num);
+          this.currentMealNum = this.num;
+          console.log('checking MainDishes to its occurrence in the week failed');
+        }
       }
     }
     }
@@ -660,7 +661,7 @@ export class HomeComponent {
       }
     }
     genMeal(): void{
-    this.mainDish();
+    this.genMainDish();
     this.genSideDish();
     this.genVeg();
     }
