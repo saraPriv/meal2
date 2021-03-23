@@ -11,6 +11,7 @@ import {count} from 'rxjs/operators';
 export class HomeComponent {
   countMealsGenerated = 0;
   currentMealNum = 0;
+  buttonClick = false;
   num = 0;
   title = 'meal2';
   mainDishesOfTheWeek: number[];
@@ -514,6 +515,7 @@ export class HomeComponent {
   ];
 
   onGenerateClick(): void {
+      this.buttonClick = true;
       this.mainDishesOfTheWeek = [];
       this.vegetablesOfTheWeek = [];
       this.sideDishesOfTheWeek = [];

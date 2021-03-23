@@ -3,10 +3,13 @@
   <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="home.css" type="text/css" rel="stylesheet" />
   </head>
   <body>
-  {{this.countMealsGenerated}}
+    <div *ngIf="buttonClick === false">
     <button (click)="onGenerateClick()">generateMealplan</button>
+    </div>
+    <div *ngIf="buttonClick === true">
     <table  border="1" >
         <tr>
           <th>Montag</th>
@@ -42,5 +45,6 @@
       </tr>
     </table>
   </div>
+    </div>
   </body>
 </html>
