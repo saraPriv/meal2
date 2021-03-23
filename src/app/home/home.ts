@@ -30,6 +30,8 @@ export class HomeComponent {
     'sa2',
     'sa3',
     'sa4',
+    'sa5',
+    'sa6',
   ];
   daysWeekArr = [] = [
     'monday',
@@ -507,6 +509,9 @@ export class HomeComponent {
 
   onGenerateClick(): void {
       this.mainDishesOfTheWeek = [];
+      this.vegetablesOfTheWeek = [];
+      this.sideDishesOfTheWeek = [];
+      this.num = 0;
       this.genOneDay();
       this.genOneDay();
       this.genOneDay();
@@ -582,14 +587,17 @@ export class HomeComponent {
       this.num = this.getNumbersSideDish();
       if (this.sideDishesOfTheWeek.length === 0){ // add sidedish monday morning
         this.sideDishesOfTheWeek.push(this.num);
+        console.log('pushedFirstSidedish');
       }
       else{
         if (this.sideDishesOfTheWeek[this.currentMealNum - 1] !== this.sideDishes[this.num]){
           this.sideDishesOfTheWeek.push(this.num);
+          console.log('numpush');
         }
         else{
         if (this.sideDishesOfTheWeek[this.currentMealNum - 1] === this.sideDishes[this.num]){ // no sidedish twice in a row
           this.genSideDish();
+          console.log('had the sidedish yesterday');
         }
         else {
           console.log('checking SideDishes to its occurrence in the week failed');
@@ -600,29 +608,46 @@ export class HomeComponent {
     else {
       if (this.mainDishes[this.currentMealNum].sidedish === false) {
         this.sideDishesOfTheWeek.push(0);
+        console.log('pushed0 veg');
       }
       else {
         console.log('no side Dish');
       }
       }
     }
-    genVeg(): void{
-      console.log('genVegetable');
-      if (this.mainDishes[this.currentMealNum].vegetables === true){ // look if we have a veg
-        this.num = this.getNumbersVegetable();
-        if (this.vegetablesOfTheWeek.length === 0){
+  genVeg(): void{
+    console.log('genVeg');
+    if (this.mainDishes[this.currentMealNum].vegetables === true){// check if we need sidedish
+      this.num = this.getNumbersVegetable();
+      if (this.vegetablesOfTheWeek.length === 0){ // add sidedish monday morning
+        this.vegetablesOfTheWeek.push(this.num);
+        console.log('pushed first veg');
+      }
+      else{
+        if (this.vegetablesOfTheWeek[this.currentMealNum - 1] !== this.vegetables[this.num]){
           this.vegetablesOfTheWeek.push(this.num);
+          console.log('pushed veggienum');
         }
         else{
-          if (this.mainDishes[this.currentMealNum].vegetables === false){ // if we dont have a veg
-            this.vegetablesOfTheWeek.push(0);
+          if (this.vegetablesOfTheWeek[this.currentMealNum - 1] === this.vegetables[this.num]){ // no sidedish twice in a row
+            this.genSideDish();
           }
-          if (this.vegetablesOfTheWeek[this.num - 1] === this.vegetables[this.num]){ // gen new veg if already had a meal before
-            this.genVeg();
+          else {
+            console.log('checking vegetables to its occurrence in the week failed');
           }
         }
       }
     }
+    else {
+      if (this.mainDishes[this.currentMealNum].vegetables === false) {
+        this.vegetablesOfTheWeek.push(0);
+        console.log('push 00 to arr');
+      }
+      else {
+        console.log('no veg');
+      }
+    }
+  }
     genMeal(): void{
     this.genMainDish();
     this.genSideDish();
