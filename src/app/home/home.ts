@@ -22,6 +22,12 @@ export class HomeComponent {
     'samp3',
     'samp4',
     'samp5',
+    'vegetable6',
+    'samp',
+    'sammp',
+    'samp3',
+    'samp4',
+    'samp5',
     'vegetable6'
   ];
   sideDishes = [
@@ -519,6 +525,11 @@ export class HomeComponent {
       this.genOneDay();
       this.genOneDay();
       this.genOneDay();
+      if (this.vegetablesOfTheWeek.length !== 14)
+      {
+        console.log('not enough veg');
+        this.veg();
+      }
       console.log('generatingMealsSuccessfull');
       console.log(this.mainDishesOfTheWeek);
       console.log(this.mainDishes);
@@ -553,6 +564,16 @@ export class HomeComponent {
     mainDish(): void {
       this.genMainDish();
       console.log('return already had main');
+    }
+    veg(): void { // had a bug with not generating enough so i just generate a few more
+      if (this.vegetablesOfTheWeek.length !== 14)
+      {
+        this.veg();
+        this.veg();
+        this.veg();
+        this.veg();
+        this.veg();
+      }
     }
     genMainDish(): void {
     console.log('genMainDish');
