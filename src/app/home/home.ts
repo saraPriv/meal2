@@ -547,7 +547,7 @@ export class HomeComponent {
       const max = this.sideDishes.length;
       this.num = 0;
       // Between 1 and max
-      this.num = Math.floor(Math.random() * max) + 1;
+      this.num = Math.floor(Math.random() * max);
       return this.num;
   }
     getNumbersVegetable(): number{
